@@ -1,0 +1,29 @@
+.navBarWrapper {
+    width: 100vw;
+    height: 50px;
+    background-color: black;
+    color: beige;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navBar {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+/* Styling the list in NavBar */
+.navBar li {
+    list-style: none;
+    cursor: pointer;
+}
+
+/* Inserting CSS to style the anchor element */
+.navBar a {
+    color: white;
+    text-decoration: none;
+}
