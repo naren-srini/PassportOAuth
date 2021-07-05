@@ -1,6 +1,8 @@
 Google OAuth2.0: https://github.com/jaredhanson/passport-google-oauth2
+Google Auth API Link: https://console.cloud.google.com/apis/dashboard
+Google OAuth Scopes: https://developers.google.com/identity/protocols/oauth2/scopes
 
-Dependencies (Required In Produciton):
+Dependencies (Required In Production):
 
 bcryptjs -> Password Hashing
 cors -> Cross Origin Security
