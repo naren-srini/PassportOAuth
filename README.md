@@ -21,17 +21,17 @@ Runs the Primary Backend Server at Link: http://localhost:4000/
 
 ## In Production
 
-bcryptjs -> Password Hashing
-cors -> Cross Origin Security
-dotenv -> Access Env Variables
+bcryptjs -> Password Hashing 
+cors -> Cross Origin Security 
+dotenv -> Access Env Variables 
 express -> Backend Library 
-express-session -> "In Memory" Sessions Handled With Express, Passport Requires This
-mongoose -> ORM To Access Resources For the MongoDB Database
-passport -> Library For Easy Secure Authentication of Users Using Express
-passport-google-oauth20 -> The Google Strategy for Passport
-passport-local -> Local Authentication Strategy with Passport
-passport-twitter-oauth2 -> Twitter Authentication Strategy with Passport 
-passport-github -> Github Authentication With Passport
+express-session -> "In Memory" Sessions Handled With Express, Passport Requires This 
+mongoose -> ORM To Access Resources For the MongoDB Database 
+passport -> Library For Easy Secure Authentication of Users Using Express 
+passport-google-oauth20 -> The Google Strategy for Passport 
+passport-local -> Local Authentication Strategy with Passport 
+passport-twitter-oauth2 -> Twitter Authentication Strategy with Passport  
+passport-github -> Github Authentication With Passport 
 
 ## TypeScript Dependencies
 
