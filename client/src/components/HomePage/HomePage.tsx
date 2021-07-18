@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { IUser } from '../../types/mainTypes';
+import { myContext } from '../Context';
 
 export default function Homepage() {
-    return (
-        <div>
-          <h1> Welcome to the Homepage</h1>  
-        </div>
+
+  const userObject = useContext(myContext) as IUser;
+  
+  return (
+      <div>
+        {
+            userObject ? (
+                <h1>Welcome back {userObject.username}</h1>
+            ) : (
+                    <h1>Welcome to my Website for Passport Authentication</h1>
+                )
+        }
+      </div>
     )
 }

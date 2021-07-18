@@ -1,4 +1,4 @@
-# PassportOAuth
+b# PassportOAuth
 OAuth 2.0 on React using Passport Authentication middleware using express.js
 In the project directory, you can run:
 
@@ -48,8 +48,17 @@ passport-github -> Github Authentication With Passport  <br/>
 
 👆 These Packages are Just Typescript Support For Dependencies (So we can use the packages type definitions)
 
+## Installed
+
+nodemon -> To Restart Server on Every Change When Building the Application
+typescript -> Typescript is Necessary
+tsc -> Compile to Javascript (Build Javascript Code, For Production)
+ts-node -> Compile to Javascript & Run on the Fly (For Development)
+
 ## Links
 
 Google OAuth2.0: https://github.com/jaredhanson/passport-google-oauth2  <br/>
 Google Auth API Link: https://console.cloud.google.com/apis/dashboard  <br/>
 Google OAuth Scopes: https://developers.google.com/identity/protocols/oauth2/scopes#google-sign-in  <br/>
+Twitter Developer Dashboard: https://developer.twitter.com/en/portal/dashboard <br/>
+
