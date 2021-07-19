@@ -80,7 +80,7 @@ passport.use(new GoogleStrategy({
   
   function(_: any, __: any, profile: any, cb: any) {
    // Called after a successful authentication
-   // Inserting user into the database
+   // Find user in the Database with the "googleId", if err then create one
    User.findOne({ googleId: profile.id }, async (err: Error, doc: IMongoDBUser) => {
 
       if (err) {
@@ -93,9 +93,12 @@ passport.use(new GoogleStrategy({
           username: profile.name.givenName
         });
 
+        // Awaiting till new user is created
         await newUser.save();
+        // Callback initiated for "newUser" from MongoDB
         cb(null, newUser);
     }
+    // Callback initiated for existing user = "doc" from MongoDB
     cb(null, doc);
   })
   }
@@ -122,6 +125,7 @@ passport.use(new TwitterStrategy({
 },
   function (_: any, __: any, profile: any, cb: any) {
 
+    // Find user in the Database with the "twitterId", if err then create one
     User.findOne({ twitterId: profile.id }, async (err: Error, doc: IMongoDBUser) => {
 
       if (err) {
@@ -134,9 +138,12 @@ passport.use(new TwitterStrategy({
           username: profile.username
         });
 
+        // Awaiting till new user is created
         await newUser.save();
+        // Callback initiated for "newUser" from MongoDB
         cb(null, newUser);
       }
+      // Callback initiated for existing user = "doc" from MongoDB
       cb(null, doc);
     })
 
@@ -148,9 +155,10 @@ passport.use(new TwitterStrategy({
 app.get('/auth/twitter', passport.authenticate('twitter'));
 
 app.get('/auth/twitter/callback',
-  passport.authenticate('twitter', { failureRedirect: 'https://gallant-hodgkin-fb9c52.netlify.app', session: true }),
+  passport.authenticate('twitter', { failureRedirect: '/login', session: true }),
   function (req, res) {
-    res.redirect('https://gallant-hodgkin-fb9c52.netlify.app');
+    // Successful authentication, redirect home.
+    res.redirect('/');
   });
 
 //* Configuring Github OAuth Strategy: Check
@@ -161,6 +169,7 @@ passport.use(new GitHubStrategy({
 },
   function (_: any, __: any, profile: any, cb: any) {
 
+    // Find user in the Database with the "githubId", if err then create one
     User.findOne({ githubId: profile.id }, async (err: Error, doc: IMongoDBUser) => {
 
       if (err) {
@@ -173,9 +182,12 @@ passport.use(new GitHubStrategy({
           username: profile.username
         });
 
+        // Awaiting till new user is created
         await newUser.save();
+        // Callback initiated for "newUser" from MongoDB
         cb(null, newUser);
       }
+      // Callback initiated for existing user = "doc" from MongoDB
       cb(null, doc);
     })
 
@@ -187,11 +199,11 @@ passport.use(new GitHubStrategy({
 app.get('/auth/github', passport.authenticate('github'));
 
 app.get('/auth/github/callback',
-  passport.authenticate('github', { failureRedirect: 'https://gallant-hodgkin-fb9c52.netlify.app', session: true }),
+  passport.authenticate('github', { failureRedirect: '/login', session: true }),
   function (req, res) {
-    res.redirect('https://gallant-hodgkin-fb9c52.netlify.app');
+    // Successful authentication, redirect home.
+    res.redirect('/');
   });
-
 
 //* Routing the Express
 app.get("/", (req, res) => {
@@ -212,8 +224,7 @@ app.get("/auth/logout", (req, res) => {
 
 })
 
-
 //* Just checking the port connection where the express is hosted
-app.listen(4000, () => {
+app.listen(process.env.PORT || 4000, () => {
   console.log("The Server has started...");   
  })

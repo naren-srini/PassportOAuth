@@ -1,9 +1,17 @@
+//* Standard React Imports
 import React, { useContext } from 'react'
-import styles from './NavBar.module.css';
 import { Link } from 'react-router-dom';
+
+//* CSS Styles Imports 
+import styles from './NavBar.module.css';
+
+//* Axios Call and Response
+import axios, { AxiosResponse } from 'axios';
+
+//* User profile and res.data import
 import { IUser } from '../../types/mainTypes';
 import { myContext } from '../Context';
-import axios, { AxiosResponse } from 'axios';
+
 
 export default function NavBar() {
     // Creating userObject for storing
@@ -11,7 +19,7 @@ export default function NavBar() {
 
     // Logout Procedure 
     const logout = () => {
-        axios.get("https://o-auth-video-backend.herokuapp.com/auth/logout", {
+        axios.get("https://localhost:4000/auth/logout", {
             withCredentials: true
         }).then((res: AxiosResponse) => {
             if (res.data === "done") {
@@ -26,7 +34,7 @@ export default function NavBar() {
                 <li><Link to='/'>Home</Link></li>
                     {
                         userObject ? (
-                        <li onClick={logout}>Logout </li>
+                        <li onClick={logout}>Logout</li>
                         ) : (
                             <li><Link to='/login'>Login</Link></li>
                         )

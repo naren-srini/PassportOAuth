@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './LoginPage.module.css';
+
+//* Icon Imports
 import googleImage from '../../assets/googleImage.png';
 import twitterImage from '../../assets/twitterImage.png';
 import githubImage from '../../assets/githubImage.png';

@@ -13,16 +13,18 @@ function App() {
   console.log(userObject);
   return (
    <BrowserRouter>
+
       <NavBar />
-        <Switch>
+   
+      <Switch>
           <Route path='/' exact component={Homepage} />
           {
             userObject ? null : (
               <Route path='/login' component={LoginPage} />
             )
           }
-        </Switch>
-
+      </Switch>
+   
    </BrowserRouter>
   );
 }

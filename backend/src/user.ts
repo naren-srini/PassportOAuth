@@ -1,4 +1,4 @@
-//* File contains the user model
+//* File contains the user model for Mongoose Schema
 import mongoose from 'mongoose';
 
 const user = new mongoose.Schema({
