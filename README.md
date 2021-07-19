@@ -70,7 +70,8 @@ Simple Guide to create mongoose cluster
 * Open the cluster and click "Connect", and then click "Connect to your Application"
 * Change Driver to Node.js > Choose Version (3.6 or later)
 * Look up for the uri string (e.g uri=mongodb+srv://your-db-name:<password><your-cluster-name>.mongodb.net/<your-database-name>?retryWrites=true&w=majority'
-* Copy this from your Mongoose Cluster and store it in your .env file 
+* Copy this from your Mongoose Cluster and store it in your .env file
+* When collecting user information from app, go to collections tab in the cluster to view data
 
 ## Links
 
@@ -83,6 +84,11 @@ Github Developer Dashboard: https://github.com/settings/developers <br/>
   
 ## Project Notes
   
-* This project contains Code Analysis that is not required for development (codeql-analysis.yml)
-* .env files are maintained locally.
-* The is xmldom npm low-vulnerability that is used in twitter OAuth
+  * The Client/Frontend uses React on TypeScript, with State Management using React
+  * The Backend uses Express.js (Server + Routing) + Node.js (DB connections)
+  * The Authentication is performed using [Passport Strategies] using OAuth (http://www.passportjs.org/packages/) 
+  * This project contains Code Analysis that is not required for development (codeql-analysis.yml)
+  * .env files are maintained locally.
+  * There is a xmldom npm vulnerability (low) that is used in twitter OAuth
+  * Use Developer Tools > Console in the web browser to view the data that is sent as json.  
+  * Application deployment maybe done using Heroku or Netlify, which I have not done here currently.
